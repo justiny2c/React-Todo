@@ -11,6 +11,7 @@ class App extends React.Component {
     this.state = {
       todoList: ["Learn setState()", "Style my Todo List"],
       newTodo: ""
+
     }
   }
   render() {
@@ -27,10 +28,25 @@ class App extends React.Component {
             <Todo todoProps={todoFromMap}/>
           ))}
         </div> */}
-        <TodoForm />
+        <TodoForm formValue={this.state} handleChange = {this.handleChange} handleSubmit = {this.handleSubmit} />
       </div>
     );
   }
+
+  handleChange = (event) => {
+    event.preventDefault();
+    this.setState({ newTodo: event.target.value });
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+
+    this.setState({
+      todoList: [...this.state.todoList, this.state.newTodo],
+      newTodo: ""
+    });
+  }
 }
+
 
 export default App;

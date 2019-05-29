@@ -1,19 +1,23 @@
 import React from "react";
 // import App from "../../App";
 
-function TodoForm (){
+function TodoForm (props){
     return (
         <div>
+            <form onSubmit = {props.handleSubmit}>
             <input
                 placeholder = "...todo"
                 name="newTodo"
-                // value={this.state.newTodo}
-                // onChange={e => this.handleChange}
+                value={props.formValue.newTodo}
+                onChange={props.handleChange}
             />
-            <button>Add Todo</button>
+            
+            <button type="submit">Add Todo</button>
             <button>Clear Completed</button>
+            </form>
         </div>
-    )
-}
+    )}
+
+
 
 export default TodoForm
