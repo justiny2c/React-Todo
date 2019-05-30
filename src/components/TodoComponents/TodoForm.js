@@ -9,8 +9,9 @@ class TodoForm extends React.Component {
     }
     render () {
     return (
-        <div>
-            <form onSubmit = {this.addTodo}>
+        <div className = "form" >
+            <form
+                onSubmit = {this.addTodo}>
             <input
                 placeholder = "...todo"
                 name="newTodo"
@@ -19,8 +20,11 @@ class TodoForm extends React.Component {
             />
             
             <button>Add Todo</button>
-            <button>Clear Completed</button>
             </form>
+            <button
+                onClick = {this.props.clearCompleted}>
+                Clear Completed</button>
+
         </div>
     )}
 

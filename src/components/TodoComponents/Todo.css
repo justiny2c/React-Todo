@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC&display=swap');
+
+#root {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    margin: 20px;
+    font-family: 'Amatic SC', cursive;
+}
+
+.body {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 80%;
+    height: 100%;
+    background-color: rgb(201, 201, 201);
+}
+
+.body p {
+    font-size: 1.2rem;
+}
+
+.todoTasks {
+    width: 400px;
+    border-bottom: 1px solid black;
+    padding: 5px;
+}
+
+.form {
+    margin: 20px;
+    display: flex;
+}
+
+.form button {
+    padding: 5px;
+    margin: 0 5px;
+    border-radius:5px;
+    background: lightblue;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
+import "./components/TodoComponents/Todo.css";
 
 
 const todoList = [
@@ -12,6 +13,16 @@ const todoList = [
   {
     task: 'Bake Cookies',
     id: 1528817084358,
+    completed: false
+  },
+  {
+    task: 'Clean Room',
+    id: 1528817084359,
+    completed: false
+  },
+  {
+    task: 'Study React',
+    id: 1528817084350,
     completed: false
   }
 ];
@@ -30,32 +41,22 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className ="body">
         <h2>Welcome to your Todo App!</h2>
         <h1>Todo List: MVP</h1>
 
         <TodoList 
-          thisIsTheArray={this.state.todoList} />
+          thisIsTheArray={this.state.todoList}
+          toggleTodo={this.toggleTodo} />
 
         <TodoForm 
-          addTodo={this.addTodo}/>
+          addTodo={this.addTodo}
+          clearCompleted={this.clearCompleted}
+          />
       </div>
     );
   }
 
-  // handleChange = (event) => {
-  //   event.preventDefault();
-  //   this.setState({ newTodo: event.target.value });
-  // }
-
-  // handleSubmit = (event) => {
-  //   event.preventDefault();
-
-  //   this.setState({
-  //     todoList: [...this.state.todoList, this.state.newTodo],
-  //     newTodo: ""
-  //   });
-  // }
 
   toggleTodo = id => {
     this.setState(prevState => {
@@ -70,6 +71,20 @@ class App extends React.Component {
               return item
             }
           }
+        )
+      }
+    })
+  };
+  
+  clearCompleted = event => {
+    event.preventDefault();
+    this.setState(prevState => {
+      return {
+        todoList: prevState.todoList.filter(item => {
+            return item.completed === !true
+            }
+           
+          
         )
       }
     })
